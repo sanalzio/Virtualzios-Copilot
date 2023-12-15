@@ -5,10 +5,11 @@ def remtab(text):
 class virtualziosCopilot:
     def __init__(self, token):
         self.token=token
-    def compileCode(self, inpu, count=1, lang=False):
+    def compilateCode(self, inpu, count=1, lang=False):
+        if len(inpu)<10: return None
         import requests
         api_url = "https://api.github.com/search/code"
-        search_query ='"'+inpu.replace('"', "'")+'" license:MIT'
+        search_query ='"'+inpu.replace('"', "'")+'"'
         if lang:
             search_query+=" language:"+lang
         headers = {
@@ -32,6 +33,6 @@ class virtualziosCopilot:
                         oneris.append(full.replace(inpu, "", 1))
                         if len(oneris)==count:
                             return oneris
-            return ""
+            return None
         except KeyError:
-            return ""
+            return None
