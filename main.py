@@ -8,7 +8,7 @@ class virtualziosCopilot:
     def compileCode(self, inpu, count=1, lang=False):
         import requests
         api_url = "https://api.github.com/search/code"
-        search_query ='"'+inpu.replace('"', "'")+'"'
+        search_query ='"'+inpu.replace('"', "'")+'" license:MIT'
         if lang:
             search_query+=" language:"+lang
         headers = {
